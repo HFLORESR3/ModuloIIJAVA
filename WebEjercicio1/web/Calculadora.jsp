@@ -1,6 +1,6 @@
 <%-- 
     Document   : Calculadora
-    Created on : 12/03/2016, 05:55:12 PM
+    Created on : 12/03/2016, 05:55:14 PM
     Author     : Upao
 --%>
 
@@ -14,26 +14,28 @@
     <body>
         <h1>Hello World!</h1>
         <%!
-            //DECLARACION DE VARIABLE
+            //Declaracion de variable
             int n=3;
-            public final static int MAX =3;
+            public final static int MAX=3;
         %>
         <%
             //Scriptles
-            String hola = "Upao";
-            
+            String hola = "UPAO";
         %>
-        <h1>Resultado: <%=n%></h1>
-        <form action="ServletEjemplo" method="POST">
-            Numero 1: <input type="text" name="n1"/>
-            Numero 2: <input type="text" name="n2"/>
-            <select name="operador">
+        
+        <h1>Resultado:<%= n%></h1>
+        
+        <form action="ServletsEjemplo1" method="POST">
+            Numero 1:<input type="text" name="n1"/>
+            Numero 2:<input type="text" name="n2"/>
+            <select name="operador" >
                 <option>+</option>
                 <option>-</option>
                 <option>*</option>
-                <option>/</option>
+                <option>/</option>                
             </select>
-            <input type ="submit" value="Calcular"/>
+            <input type="submit" value="Calcular"/>
         </form>
+        
     </body>
 </html>

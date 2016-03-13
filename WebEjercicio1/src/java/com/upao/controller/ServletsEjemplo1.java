@@ -9,6 +9,7 @@ import com.upao.service.MateService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,35 +18,30 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Upao
  */
-public class ServletEjemplo extends HttpServlet {
+@WebServlet(name = "ServletsEjemplo1", urlPatterns = {"/ServletsEjemplo1"})
+public class ServletsEjemplo1 extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+           
+            //Datos 
             int n1=Integer.parseInt(request.getParameter("n1"));
             int n2=Integer.parseInt(request.getParameter("n2"));
-            String operador = request.getParameter("operador");
-            
-            MateService mateservice = new MateService();
-            int rpta = mateservice.Calcular(n1, n2, operador);
-            
-            out.print("<p>Numero 1:"+n1+"</p>");
-            out.print("<p>Numero 2:"+n2+"</p>");
-            out.print("<p>Operacion:"+operador+"</p>");
-            out.print("<p>Respuesta:"+rpta+"</p>");
+            String operador=request.getParameter("operador");
+            //Procesar
+            MateService mateService=new MateService();
+            int rpta=mateService.Calcular(n1, n2, operador);
+            //Respuesta: Reporte
+            out.println("<p>Numero 1:"+n1+"</p>");
+            out.println("<p>Numero 2:"+n1+"</p>");
+            out.println("<p>Operacion:"+n2+"</p>");
+            out.println("<p>Repuesta:"+rpta+"</p>");
             out.flush();
             out.close();
+            
         }
     }
 
